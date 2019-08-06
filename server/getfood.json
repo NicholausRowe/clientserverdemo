@@ -2,5 +2,17 @@
     {
         "favorite food": "sushi",
         "age liked": "don't remember"
+    },
+    {
+        "favorite food": "taco",
+        "age liked": "8"
+    },
+    {
+        "favorite food": "hotdog",
+        "age liked": "8"
+    },
+    {
+        "favorite food": "not hotdog",
+        "age liked": "6"
     }
 ]
