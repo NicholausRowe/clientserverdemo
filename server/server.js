@@ -1,6 +1,11 @@
 const express = require('express');
 const cors = require('cors');
+const mysql = require('mysql');
+
+const creds = require('./mysqlcredentials.js');
+const db = mysql.createConnection(creds);
 const server = express();
+
 
 const names = [
     {
@@ -37,8 +42,14 @@ const foods = [
 
 server.use(cors());
 
-server.get('/getnames', (request, response) => {
-    response.send(names);
+server.get('/names', (request, response) => {
+    db.connect(()=>{
+        db.query("SELECT * FROM`names`", (error, data, fields)=>{
+            if (!error){
+                response.send(data);
+            }
+        })
+    })
 })
 
 server.get('/getfood', (request, response) => {
